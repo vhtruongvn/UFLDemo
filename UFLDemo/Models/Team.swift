@@ -10,11 +10,11 @@ import Foundation
 
 class Team: NSObject {
     
-    let id: String
+    let id: Int
     let name: String
     let shortName: String
     
-    init(id: String, name: String, shortName: String) {
+    init(id: Int, name: String, shortName: String) {
         self.id = id
         self.name = name
         self.shortName = shortName

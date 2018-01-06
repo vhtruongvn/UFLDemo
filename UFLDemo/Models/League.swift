@@ -10,12 +10,12 @@ import Foundation
 
 class League: NSObject {
     
-    let id: String
+    let id: Int
     let name: String
     let leagueCode: String
     let region: String
     
-    init(id: String, name: String, leagueCode: String, region: String) {
+    init(id: Int, name: String, leagueCode: String, region: String) {
         self.id = id
         self.name = name
         self.leagueCode = leagueCode
