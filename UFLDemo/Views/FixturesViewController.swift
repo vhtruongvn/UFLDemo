@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  FixturesViewController.swift
 //  UFLDemo
 //
 //  Created by Truong Vo on 1/5/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class FixturesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
