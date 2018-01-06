@@ -21,6 +21,8 @@
 		8F3E5CC82000A79D00BC3913 /* Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CC72000A79D00BC3913 /* Fixture.swift */; };
 		8F3E5CCB2000ADBE00BC3913 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CCA2000ADBE00BC3913 /* APIService.swift */; };
 		8F3E5CCD2000BAB200BC3913 /* FixturesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CCC2000BAB200BC3913 /* FixturesViewModel.swift */; };
+		8F3E5CCF2000C0F500BC3913 /* FixtureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CCE2000C0F500BC3913 /* FixtureTableViewCell.swift */; };
+		8F3E5CD22000C7AE00BC3913 /* DesignableImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CD12000C7AE00BC3913 /* DesignableImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		8F3E5CC72000A79D00BC3913 /* Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fixture.swift; sourceTree = "<group>"; };
 		8F3E5CCA2000ADBE00BC3913 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		8F3E5CCC2000BAB200BC3913 /* FixturesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixturesViewModel.swift; sourceTree = "<group>"; };
+		8F3E5CCE2000C0F500BC3913 /* FixtureTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureTableViewCell.swift; sourceTree = "<group>"; };
+		8F3E5CD12000C7AE00BC3913 /* DesignableImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +122,7 @@
 				8F3E5CB91FFFA1E900BC3913 /* Models */,
 				8F3E5CBA1FFFA20400BC3913 /* Views */,
 				8F3E5CBB1FFFA20C00BC3913 /* ViewModels */,
+				8F3E5CD02000C78600BC3913 /* Subclasses */,
 			);
 			path = UFLDemo;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				8F3E5C8C1FFFA0AC00BC3913 /* FixturesViewController.swift */,
+				8F3E5CCE2000C0F500BC3913 /* FixtureTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +198,14 @@
 				8F3E5CC420009A7F00BC3913 /* MockData */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		8F3E5CD02000C78600BC3913 /* Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				8F3E5CD12000C7AE00BC3913 /* DesignableImage.swift */,
+			);
+			path = Subclasses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +351,8 @@
 				8F3E5CC620009ABC00BC3913 /* League.swift in Sources */,
 				8F3E5CCB2000ADBE00BC3913 /* APIService.swift in Sources */,
 				8F3E5C8B1FFFA0AC00BC3913 /* AppDelegate.swift in Sources */,
+				8F3E5CD22000C7AE00BC3913 /* DesignableImage.swift in Sources */,
+				8F3E5CCF2000C0F500BC3913 /* FixtureTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
