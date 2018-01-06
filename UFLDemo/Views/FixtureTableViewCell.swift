@@ -13,6 +13,7 @@ class FixtureTableViewCell: UITableViewCell {
     @IBOutlet weak var homeTeamLogoImageView: UIImageView!
     @IBOutlet weak var homeTeamNameLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var awayTeamLogoImageView: UIImageView!
     @IBOutlet weak var awayTeamNameLabel: UILabel!
     
