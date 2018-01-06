@@ -1,0 +1,10 @@
+{
+    "data": [
+         {
+             "id": 2,
+             "name": "Premier League",
+             "code": "EPL",
+             "region": "England"
+         },
+    ]
+}
