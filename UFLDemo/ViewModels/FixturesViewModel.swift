@@ -66,7 +66,7 @@ class FixturesViewModel {
         let homeTeamText = fixture.homeTeam.name
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
-        let timeText = dateFormatter.string(from: fixture.gameDate)
+        let timeText = dateFormatter.string(from: fixture.gameDateTime)
         let awayTeamLogoName = fixture.awayTeam.shortName
         let awayTeamText = fixture.awayTeam.name
         

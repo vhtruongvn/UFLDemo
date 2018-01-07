@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="Kwl-75-s53" userLabel="Image BG">
-                                <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="677"/>
                             </imageView>
                             <view alpha="0.89999997615814209" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x8o-d0-ecj" userLabel="Blurred BG">
-                                <rect key="frame" x="0.0" y="10" width="375.5" height="667"/>
+                                <rect key="frame" x="0.5" y="0.0" width="375" height="677"/>
                                 <color key="backgroundColor" red="0.01176470588" green="0.1529411765" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
@@ -31,10 +31,10 @@
                             <constraint firstItem="x8o-d0-ecj" firstAttribute="centerX" secondItem="Kwl-75-s53" secondAttribute="centerX" id="6gz-Gu-og0"/>
                             <constraint firstItem="x8o-d0-ecj" firstAttribute="centerY" secondItem="Kwl-75-s53" secondAttribute="centerY" id="Rfq-9Z-F9c"/>
                             <constraint firstItem="Kwl-75-s53" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="Suk-Jt-Ssy"/>
-                            <constraint firstItem="Kwl-75-s53" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="Wrz-sg-6LU"/>
+                            <constraint firstItem="Kwl-75-s53" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" constant="10" id="Wrz-sg-6LU"/>
                             <constraint firstItem="Kwl-75-s53" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="ZMt-U3-Cch"/>
                             <constraint firstItem="x8o-d0-ecj" firstAttribute="height" secondItem="Kwl-75-s53" secondAttribute="height" id="fpI-bG-LxS"/>
-                            <constraint firstItem="Kwl-75-s53" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="fzc-cO-hqx"/>
+                            <constraint firstItem="Kwl-75-s53" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-5" id="fzc-cO-hqx"/>
                             <constraint firstItem="x8o-d0-ecj" firstAttribute="width" secondItem="Kwl-75-s53" secondAttribute="width" id="zGm-9U-GQX"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -42,7 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
     <resources>

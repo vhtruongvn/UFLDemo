@@ -79,7 +79,7 @@ class APIService: APIServiceProtocol {
                             let dateString = fixtureObject["gameDate"] as! String
                             let dateFormatter = DateFormatter()
                             dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ" // 2015-08-08T14:00:00+0000
-                            let gameDate = dateFormatter.date(from: dateString)
+                            let gameDateTime = dateFormatter.date(from: dateString)
                             
                             let leagueObject = fixtureObject["league"] as! [String: Any]
                             let leagueId = leagueObject["id"] as! Int
@@ -101,7 +101,7 @@ class APIService: APIServiceProtocol {
                             let awayTeamShortName = awayTeamObject["shortName"] as! String
                             let awayTeam = Team(id: awayTeamId, name: awayTeamName, shortName: awayTeamShortName)
                             
-                            let fixture = Fixture(id: fixtureId, gameDate: gameDate!, league: league, homeTeam: homeTeam, awayTeam: awayTeam)
+                            let fixture = Fixture(id: fixtureId, gameDateTime: gameDateTime!, league: league, homeTeam: homeTeam, awayTeam: awayTeam)
                             fixtures.append(fixture)
                         }
                         complete(true, fixtures, nil)

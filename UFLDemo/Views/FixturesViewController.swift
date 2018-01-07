@@ -8,6 +8,9 @@
 
 import UIKit
 
+let headerSectionHeight: CGFloat = 44
+let cellHeight: CGFloat = 50
+
 class FixturesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -55,7 +58,6 @@ class FixturesViewController: UIViewController {
         // Pull to refresh
         pullToRefresh = UIRefreshControl()
         tableView.addSubview(pullToRefresh)
-        pullToRefresh.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: [NSAttributedStringKey.foregroundColor: UIColor.white])
         pullToRefresh.tintColor = UIColor.white
         pullToRefresh.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         
@@ -118,7 +120,7 @@ class FixturesViewController: UIViewController {
         }
     }
     
-    func showAlert(_ message: String ) {
+    func showAlert(_ message: String) {
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
         alert.addAction( UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
@@ -137,12 +139,26 @@ extension FixturesViewController: UITableViewDelegate, UITableViewDataSource {
         return 1
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return headerSectionHeight
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "sectionHeader") as? FixtureTableViewSectionHeader else {
+            fatalError("Cell not exists in storyboard")
+        }
+        
+        cell.dateLabel.text = "TODAY"
+        
+        return cell
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.numberOfCells
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return cellHeight
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -25,6 +25,8 @@
 		8F3E5CD42001796C00BC3913 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F3E5CD32001796C00BC3913 /* Main.storyboard */; };
 		8F3E5CD620017A1600BC3913 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CD520017A1600BC3913 /* DesignableView.swift */; };
 		8F3E5CD82001B8F900BC3913 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CD72001B8F900BC3913 /* APIServiceTests.swift */; };
+		8F3E5CDA2001D02000BC3913 /* FixtureTableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CD92001D02000BC3913 /* FixtureTableViewSectionHeader.swift */; };
+		8F3E5CDC2001D89800BC3913 /* LeagueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CDB2001D89800BC3913 /* LeagueTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,8 @@
 		8F3E5CD32001796C00BC3913 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		8F3E5CD520017A1600BC3913 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		8F3E5CD72001B8F900BC3913 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
+		8F3E5CD92001D02000BC3913 /* FixtureTableViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureTableViewSectionHeader.swift; sourceTree = "<group>"; };
+		8F3E5CDB2001D89800BC3913 /* LeagueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +179,8 @@
 			children = (
 				8F3E5C8C1FFFA0AC00BC3913 /* FixturesViewController.swift */,
 				8F3E5CCE2000C0F500BC3913 /* FixtureTableViewCell.swift */,
+				8F3E5CD92001D02000BC3913 /* FixtureTableViewSectionHeader.swift */,
+				8F3E5CDB2001D89800BC3913 /* LeagueTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -354,11 +360,13 @@
 				8F3E5C8D1FFFA0AC00BC3913 /* FixturesViewController.swift in Sources */,
 				8F3E5CCD2000BAB200BC3913 /* FixturesViewModel.swift in Sources */,
 				8F3E5CC82000A79D00BC3913 /* Fixture.swift in Sources */,
+				8F3E5CDA2001D02000BC3913 /* FixtureTableViewSectionHeader.swift in Sources */,
 				8F3E5CC620009ABC00BC3913 /* League.swift in Sources */,
 				8F3E5CCB2000ADBE00BC3913 /* APIService.swift in Sources */,
 				8F3E5C8B1FFFA0AC00BC3913 /* AppDelegate.swift in Sources */,
 				8F3E5CD22000C7AE00BC3913 /* DesignableImage.swift in Sources */,
 				8F3E5CD620017A1600BC3913 /* DesignableView.swift in Sources */,
+				8F3E5CDC2001D89800BC3913 /* LeagueTableViewCell.swift in Sources */,
 				8F3E5CCF2000C0F500BC3913 /* FixtureTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
