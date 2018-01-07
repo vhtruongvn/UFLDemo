@@ -8,10 +8,16 @@
 
 import UIKit
 
+protocol LeagueFilterViewControllerDelegate {
+    func filterApplied(leagueIds: [Int])
+}
+
 class LeagueFilterViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var loadingIndicatorView: UIActivityIndicatorView!
+    
+    var delegate: LeagueFilterViewControllerDelegate?
     
     lazy var viewModel: LeagueFilterViewModel = {
         return LeagueFilterViewModel()
@@ -98,7 +104,9 @@ extension LeagueFilterViewController: UICollectionViewDataSource, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cellVM = viewModel.selectCellViewModel(at: indexPath)
+        delegate?.filterApplied(leagueIds: viewModel.getSelectedLeagueIds())
         
+        // Highlight selected cell
         let cell = collectionView.cellForItem(at: indexPath) as! LeagueCell
         cell.isSelected = cellVM.isSelected
     }

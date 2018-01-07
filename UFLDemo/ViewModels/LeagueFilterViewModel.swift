@@ -8,6 +8,8 @@
 
 import Foundation
 
+let AllLeaguesId = 0
+
 class LeagueFilterViewModel {
     
     let apiService: APIServiceProtocol
@@ -65,14 +67,14 @@ class LeagueFilterViewModel {
         let cellVM = cellViewModels[indexPath.row]
         
         // "All Leagues" is selected
-        if cellVM.region == "All" {
+        if cellVM.id == AllLeaguesId {
             if cellVM.isSelected {
                 // "All Leagues" is already selected
             }
             else {
                 cellViewModels = cellViewModels.map { (leagueCellViewModel: LeagueCellViewModel) -> LeagueCellViewModel in
                     var mutableCellVM = leagueCellViewModel
-                    mutableCellVM.isSelected = leagueCellViewModel.region == "All" ? true : false
+                    mutableCellVM.isSelected = leagueCellViewModel.id == AllLeaguesId ? true : false
                     return mutableCellVM
                 }
             }
@@ -86,14 +88,24 @@ class LeagueFilterViewModel {
         return cellVM
     }
     
+    func getSelectedLeagueIds() -> [Int] {
+        var leagueIds = [Int]()
+        for cellVM in cellViewModels {
+            if cellVM.isSelected {
+                leagueIds.append(cellVM.id)
+            }
+        }
+        return leagueIds
+    }
+    
     func createCellViewModel(league: League) -> LeagueCellViewModel {
         let leagueLogoName = league.region
         let leagueText = league.name
-        let selected = league.region == "All" ? true : false // "All Leagues" is selected by default
+        let selected = league.id == AllLeaguesId ? true : false // "All Leagues" is selected by default
         
         return LeagueCellViewModel(leagueLogoName: leagueLogoName,
                                    leagueText: leagueText,
-                                   region: league.region,
+                                   id: league.id,
                                    isSelected: selected)
     }
     
@@ -111,6 +123,6 @@ class LeagueFilterViewModel {
 struct LeagueCellViewModel {
     let leagueLogoName: String
     let leagueText: String
-    let region: String
+    let id: Int
     var isSelected: Bool
 }

@@ -23,6 +23,7 @@ class FixturesViewController: UIViewController {
     var isFilterMenuDisplayed = false
     var animatingFilterMenu: Bool = false
     var firstLoad: Bool = true
+    var leagueFilterViewController: LeagueFilterViewController?
     
     lazy var viewModel: FixturesViewModel = {
         return FixturesViewModel()
@@ -175,7 +176,24 @@ class FixturesViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "EmbedFilterMenu" {
+            if let viewController = segue.destination as? LeagueFilterViewController {
+                self.leagueFilterViewController = viewController
+                self.leagueFilterViewController?.delegate = self
+            }
+        }
+    }
 
+}
+
+extension FixturesViewController: LeagueFilterViewControllerDelegate {
+    
+    func filterApplied(leagueIds: [Int]) {
+        print(leagueIds)
+    }
+    
 }
 
 extension FixturesViewController: UITableViewDelegate, UITableViewDataSource {

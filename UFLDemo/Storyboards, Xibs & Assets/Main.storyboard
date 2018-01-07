@@ -246,7 +246,7 @@
                                     <constraint firstAttribute="height" constant="64" id="3TK-Ps-nu0"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="41j-72-pjl" kind="embed" id="XMf-om-UEx"/>
+                                    <segue destination="41j-72-pjl" kind="embed" identifier="EmbedFilterMenu" id="XMf-om-UEx"/>
                                 </connections>
                             </containerView>
                         </subviews>
