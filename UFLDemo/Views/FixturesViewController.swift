@@ -240,3 +240,14 @@ extension FixturesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+extension FixturesViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if isFilterMenuDisplayed && (scrollView.isTracking || scrollView.isDragging || scrollView.isDecelerating) {
+            filterButton.setImage(UIImage(named: "icon_filter"), for: .normal)
+            hideFilterMenu()
+        }
+    }
+    
+}
