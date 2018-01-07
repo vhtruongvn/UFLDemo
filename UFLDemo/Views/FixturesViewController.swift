@@ -15,9 +15,11 @@ class FixturesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var leagueFilterContainer: UIView!
+    @IBOutlet weak var leagueFilterContainerTopConstraint: NSLayoutConstraint!
     var pullToRefresh: UIRefreshControl!
     var filterButton: UIButton!
-    var isFilterMenuOpen = false
+    var isFilterMenuDisplayed = false
+    var animatingFilterMenu: Bool = false
     
     lazy var viewModel: FixturesViewModel = {
         return FixturesViewModel()
@@ -109,12 +111,14 @@ class FixturesViewController: UIViewController {
     }
     
     @objc func filterButtonTapped(_ sender: AnyObject) {
-        isFilterMenuOpen = !isFilterMenuOpen
-        if isFilterMenuOpen {
+        isFilterMenuDisplayed = !isFilterMenuDisplayed
+        if isFilterMenuDisplayed {
             filterButton.setImage(UIImage(named: "icon_filter_selected"), for: .normal)
+            showFilterMenu()
         }
         else {
             filterButton.setImage(UIImage(named: "icon_filter"), for: .normal)
+            hideFilterMenu()
         }
     }
     
@@ -122,6 +126,36 @@ class FixturesViewController: UIViewController {
         let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
         alert.addAction( UIAlertAction(title: "Ok", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func hideFilterMenu() {
+        let yAlign: CGFloat = -64
+        self.animateDropDownToFrame(y: yAlign) {
+            self.isFilterMenuDisplayed = false
+        }
+    }
+    
+    func showFilterMenu() {
+        let yAlign: CGFloat = 0.0
+        self.animateDropDownToFrame(y: yAlign) {
+            self.isFilterMenuDisplayed = true
+        }
+    }
+    
+    func animateDropDownToFrame(y: CGFloat, completion:@escaping () -> Void) {
+        if !self.animatingFilterMenu {
+            self.animatingFilterMenu = true
+            
+            UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: { () -> Void in
+                self.leagueFilterContainerTopConstraint.constant = y // change the position of filter menu
+                self.view.layoutIfNeeded() // essential for animation carry out if not view changes abruptly
+            }, completion: { (completed: Bool) -> Void in
+                self.animatingFilterMenu = false
+                if (completed) {
+                    completion()
+                }
+            })
+        }
     }
 
     override func didReceiveMemoryWarning() {

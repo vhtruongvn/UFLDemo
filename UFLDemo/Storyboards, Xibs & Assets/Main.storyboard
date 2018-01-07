@@ -238,7 +238,7 @@
                                 </connections>
                             </tableView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UgQ-w3-UAx">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                                <rect key="frame" x="0.0" y="-64" width="375" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="64" id="3TK-Ps-nu0"/>
                                 </constraints>
@@ -250,7 +250,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fNT-Qy-4cR" secondAttribute="trailing" id="3cD-Kz-HYp"/>
-                            <constraint firstItem="UgQ-w3-UAx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="4Tb-Gq-gam"/>
+                            <constraint firstItem="UgQ-w3-UAx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-64" id="4Tb-Gq-gam"/>
                             <constraint firstItem="fNT-Qy-4cR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="5vH-81-2wK"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="fNT-Qy-4cR" secondAttribute="bottom" id="612-rA-Zus"/>
                             <constraint firstItem="MME-J5-UkI" firstAttribute="width" secondItem="4SW-JF-Sk2" secondAttribute="width" id="ANG-HT-reD"/>
@@ -270,6 +270,7 @@
                     <navigationItem key="navigationItem" id="3w1-Ki-c6O"/>
                     <connections>
                         <outlet property="leagueFilterContainer" destination="UgQ-w3-UAx" id="bpY-y2-a3f"/>
+                        <outlet property="leagueFilterContainerTopConstraint" destination="4Tb-Gq-gam" id="MNf-io-czx"/>
                         <outlet property="tableView" destination="fNT-Qy-4cR" id="lkz-gi-VQU"/>
                     </connections>
                 </viewController>
@@ -363,7 +364,7 @@ Name</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I2I-iK-wOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="648" y="-169"/>
+            <point key="canvasLocation" x="998" y="-139"/>
         </scene>
     </scenes>
     <resources>
