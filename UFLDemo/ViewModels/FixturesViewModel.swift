@@ -72,9 +72,8 @@ class FixturesViewModel {
     func createCellViewModel(fixture: Fixture) -> FixtureCellViewModel {
         let homeTeamLogoName = fixture.homeTeam.shortName
         let homeTeamText = fixture.homeTeam.name
+        let dateText = fixture.gameDateTime.formatGameDate()
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "EEEE dd MMMM"
-        let dateText = dateFormatter.string(from: fixture.gameDateTime)
         dateFormatter.dateFormat = "HH:mm"
         let timeText = dateFormatter.string(from: fixture.gameDateTime)
         let awayTeamLogoName = fixture.awayTeam.shortName

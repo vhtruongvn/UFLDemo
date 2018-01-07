@@ -28,6 +28,9 @@
 		8F3E5CDA2001D02000BC3913 /* FixtureTableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CD92001D02000BC3913 /* FixtureTableViewSectionHeader.swift */; };
 		8F3E5CDC2001D89800BC3913 /* LeagueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CDB2001D89800BC3913 /* LeagueTableViewCell.swift */; };
 		8F3E5CDF2001E0DC00BC3913 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CDE2001E0DC00BC3913 /* ArrayExtension.swift */; };
+		8F3E5CE12001F31F00BC3913 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CE02001F31F00BC3913 /* DateExtension.swift */; };
+		8F3E5CE32001FA1B00BC3913 /* LeagueFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CE22001FA1B00BC3913 /* LeagueFilterViewController.swift */; };
+		8F3E5CE52001FA3A00BC3913 /* LeagueFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CE42001FA3A00BC3913 /* LeagueFilterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		8F3E5CD92001D02000BC3913 /* FixtureTableViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureTableViewSectionHeader.swift; sourceTree = "<group>"; };
 		8F3E5CDB2001D89800BC3913 /* LeagueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTableViewCell.swift; sourceTree = "<group>"; };
 		8F3E5CDE2001E0DC00BC3913 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
+		8F3E5CE02001F31F00BC3913 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
+		8F3E5CE22001FA1B00BC3913 /* LeagueFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueFilterViewController.swift; sourceTree = "<group>"; };
+		8F3E5CE42001FA3A00BC3913 /* LeagueFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueFilterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,7 @@
 				8F3E5CCE2000C0F500BC3913 /* FixtureTableViewCell.swift */,
 				8F3E5CD92001D02000BC3913 /* FixtureTableViewSectionHeader.swift */,
 				8F3E5CDB2001D89800BC3913 /* LeagueTableViewCell.swift */,
+				8F3E5CE22001FA1B00BC3913 /* LeagueFilterViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -192,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				8F3E5CCC2000BAB200BC3913 /* FixturesViewModel.swift */,
+				8F3E5CE42001FA3A00BC3913 /* LeagueFilterViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -227,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				8F3E5CDE2001E0DC00BC3913 /* ArrayExtension.swift */,
+				8F3E5CE02001F31F00BC3913 /* DateExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -368,6 +377,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F3E5CBF2000894500BC3913 /* Team.swift in Sources */,
+				8F3E5CE12001F31F00BC3913 /* DateExtension.swift in Sources */,
+				8F3E5CE52001FA3A00BC3913 /* LeagueFilterViewModel.swift in Sources */,
 				8F3E5C8D1FFFA0AC00BC3913 /* FixturesViewController.swift in Sources */,
 				8F3E5CCD2000BAB200BC3913 /* FixturesViewModel.swift in Sources */,
 				8F3E5CC82000A79D00BC3913 /* Fixture.swift in Sources */,
@@ -375,6 +386,7 @@
 				8F3E5CC620009ABC00BC3913 /* League.swift in Sources */,
 				8F3E5CCB2000ADBE00BC3913 /* APIService.swift in Sources */,
 				8F3E5C8B1FFFA0AC00BC3913 /* AppDelegate.swift in Sources */,
+				8F3E5CE32001FA1B00BC3913 /* LeagueFilterViewController.swift in Sources */,
 				8F3E5CD22000C7AE00BC3913 /* DesignableImage.swift in Sources */,
 				8F3E5CD620017A1600BC3913 /* DesignableView.swift in Sources */,
 				8F3E5CDC2001D89800BC3913 /* LeagueTableViewCell.swift in Sources */,

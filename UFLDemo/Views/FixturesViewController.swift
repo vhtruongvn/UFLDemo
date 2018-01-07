@@ -70,7 +70,7 @@ class FixturesViewController: UIViewController {
         viewModel.showAlertClosure = { [weak self] () in
             DispatchQueue.main.async {
                 if let message = self?.viewModel.alertMessage {
-                    self?.showAlert( message )
+                    self?.showAlert(message)
                 }
             }
         }
@@ -80,15 +80,9 @@ class FixturesViewController: UIViewController {
                 let isLoading = self?.viewModel.isLoading ?? false
                 if isLoading {
                     self?.pullToRefresh.beginRefreshing()
-                    UIView.animate(withDuration: 0.2, animations: {
-                        self?.tableView.alpha = 0.0
-                    })
                 }
                 else {
                     self?.pullToRefresh.endRefreshing()
-                    UIView.animate(withDuration: 0.2, animations: {
-                        self?.tableView.alpha = 1.0
-                    })
                 }
             }
         }
