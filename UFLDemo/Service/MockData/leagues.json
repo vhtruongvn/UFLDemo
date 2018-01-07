@@ -1,10 +1,49 @@
 {
     "data": [
+	    {
+             "id": 0,
+             "name": "All Leagues",
+             "region": "All"
+         },
+         {
+             "id": 1,
+             "name": "Premier League",
+             "region": "England"
+         },
          {
              "id": 2,
-             "name": "Premier League",
-             "code": "EPL",
+             "name": "La Liga",
+             "region": "Spain"
+         },
+         {
+             "id": 3,
+             "name": "Serie A",
+             "region": "Italy"
+         },
+         {
+             "id": 4,
+             "name": "Saudi Pro League",
+             "region": "Saudi"
+         },
+         {
+             "id": 5,
+             "name": "FA Cup",
              "region": "England"
+         },
+         {
+             "id": 6,
+             "name": "League Cup",
+             "region": "England"
+         },
+         {
+             "id": 7,
+             "name": "Copa Del Rey",
+             "region": "Spain"
+         },
+         {
+             "id": 8,
+             "name": "Coupe de la Ligue",
+             "region": "France"
          },
     ]
 }

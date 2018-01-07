@@ -4,9 +4,8 @@
              "id": 21158,
              "gameDate": "2015-08-08T09:00:00+0000",
              "league": {
-                 "id": 2,
+                 "id": 1,
                  "name": "Premier League",
-                 "code": "EPL",
                  "region": "England"
              },
              "teams": {
@@ -47,9 +46,8 @@
              "id": 21159,
              "gameDate": "2015-08-08T15:00:00+0000",
              "league": {
-                 "id": 2,
+                 "id": 1,
                  "name": "Premier League",
-                 "code": "EPL",
                  "region": "England"
              },
              "teams": {
@@ -90,9 +88,8 @@
              "id": 21160,
              "gameDate": "2015-08-09T14:00:00+0000",
              "league": {
-                 "id": 2,
+                 "id": 1,
                  "name": "Premier League",
-                 "code": "EPL",
                  "region": "England"
              },
              "teams": {
@@ -133,9 +130,8 @@
              "id": 21161,
              "gameDate": "2015-08-10T14:00:00+0000",
              "league": {
-                 "id": 2,
+                 "id": 1,
                  "name": "Premier League",
-                 "code": "EPL",
                  "region": "England"
              },
              "teams": {

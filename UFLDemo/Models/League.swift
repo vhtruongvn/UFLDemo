@@ -12,13 +12,11 @@ class League: NSObject {
     
     let id: Int
     let name: String
-    let leagueCode: String
     let region: String
     
-    init(id: Int, name: String, leagueCode: String, region: String) {
+    init(id: Int, name: String, region: String) {
         self.id = id
         self.name = name
-        self.leagueCode = leagueCode
         self.region = region
     }
     

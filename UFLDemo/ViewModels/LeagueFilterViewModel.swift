@@ -61,12 +61,40 @@ class LeagueFilterViewModel {
         return cellViewModels[indexPath.row]
     }
     
+    func selectCellViewModel(at indexPath: IndexPath) -> LeagueCellViewModel {
+        let cellVM = cellViewModels[indexPath.row]
+        
+        // "All Leagues" is selected
+        if cellVM.region == "All" {
+            if cellVM.isSelected {
+                // "All Leagues" is already selected
+            }
+            else {
+                cellViewModels = cellViewModels.map { (leagueCellViewModel: LeagueCellViewModel) -> LeagueCellViewModel in
+                    var mutableCellVM = leagueCellViewModel
+                    mutableCellVM.isSelected = leagueCellViewModel.region == "All" ? true : false
+                    return mutableCellVM
+                }
+            }
+        }
+        else {
+            // other league is selected
+            cellViewModels[0].isSelected = false // un-select "All Leagues"
+            cellViewModels[indexPath.row].isSelected = !cellViewModels[indexPath.row].isSelected
+        }
+        
+        return cellVM
+    }
+    
     func createCellViewModel(league: League) -> LeagueCellViewModel {
         let leagueLogoName = league.region
         let leagueText = league.name
+        let selected = league.region == "All" ? true : false // "All Leagues" is selected by default
         
         return LeagueCellViewModel(leagueLogoName: leagueLogoName,
-                                   leagueText: leagueText)
+                                   leagueText: leagueText,
+                                   region: league.region,
+                                   isSelected: selected)
     }
     
     private func processFetchedLeagues(leagues: [League]) {
@@ -83,4 +111,6 @@ class LeagueFilterViewModel {
 struct LeagueCellViewModel {
     let leagueLogoName: String
     let leagueText: String
+    let region: String
+    var isSelected: Bool
 }

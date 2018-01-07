@@ -36,10 +36,9 @@ class APIService: APIServiceProtocol {
                         for leagueObject in leagueObjects {
                             let leagueId = leagueObject["id"] as! Int
                             let leagueName = leagueObject["name"] as! String
-                            let leagueCode = leagueObject["code"] as! String
                             let leagueRegion = leagueObject["region"] as! String
                             
-                            let league = League(id: leagueId, name: leagueName, leagueCode: leagueCode, region: leagueRegion)
+                            let league = League(id: leagueId, name: leagueName, region: leagueRegion)
                             leagues.append(league)
                         }
                         complete(true, leagues, nil)
@@ -84,9 +83,8 @@ class APIService: APIServiceProtocol {
                             let leagueObject = fixtureObject["league"] as! [String: Any]
                             let leagueId = leagueObject["id"] as! Int
                             let leagueName = leagueObject["name"] as! String
-                            let leagueCode = leagueObject["code"] as! String
                             let leagueRegion = leagueObject["region"] as! String
-                            let league = League(id: leagueId, name: leagueName, leagueCode: leagueCode, region: leagueRegion)
+                            let league = League(id: leagueId, name: leagueName, region: leagueRegion)
                             
                             let teamsObject = fixtureObject["teams"] as! [String: Any]
                             let homeTeamObject = teamsObject["home"] as! [String: Any]

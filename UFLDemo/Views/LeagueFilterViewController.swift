@@ -43,17 +43,17 @@ class LeagueFilterViewController: UIViewController {
             DispatchQueue.main.async {
                 let isLoading = self?.viewModel.isLoading ?? false
                 if isLoading {
-                    self?.pullToRefresh.beginRefreshing()
+                    
                 }
                 else {
-                    self?.pullToRefresh.endRefreshing()
+                    
                 }
             }
         }
         
         viewModel.reloadTableViewClosure = { [weak self] () in
             DispatchQueue.main.async {
-                self?.tableView.reloadData()
+                self?.collectionView.reloadData()
             }
         }
         
@@ -71,4 +71,33 @@ class LeagueFilterViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+}
+
+extension LeagueFilterViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.numberOfCells
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "leagueCell", for: indexPath) as? LeagueCell else {
+            fatalError("Cell not exists in storyboard")
+        }
+        
+        let cellVM = viewModel.getCellViewModel(at: indexPath)
+        
+        cell.leagueLogoName = cellVM.leagueLogoName
+        cell.leagueName = cellVM.leagueText
+        cell.isSelected = cellVM.isSelected
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cellVM = viewModel.selectCellViewModel(at: indexPath)
+        
+        let cell = collectionView.cellForItem(at: indexPath) as! LeagueCell
+        cell.isSelected = cellVM.isSelected
+    }
+    
 }

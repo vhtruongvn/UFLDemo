@@ -14,6 +14,7 @@ let cellHeight: CGFloat = 50
 class FixturesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var leagueFilterContainer: UIView!
     var pullToRefresh: UIRefreshControl!
     var filterButton: UIButton!
     var isFilterMenuOpen = false
@@ -64,6 +65,9 @@ class FixturesViewController: UIViewController {
         // Image BG
         tableView.backgroundView = nil
         tableView.backgroundColor = UIColor.clear
+        
+        // League Filter
+        leagueFilterContainer.dropShadow()
     }
     
     func initVM() {

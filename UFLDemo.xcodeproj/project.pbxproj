@@ -31,6 +31,8 @@
 		8F3E5CE12001F31F00BC3913 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CE02001F31F00BC3913 /* DateExtension.swift */; };
 		8F3E5CE32001FA1B00BC3913 /* LeagueFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CE22001FA1B00BC3913 /* LeagueFilterViewController.swift */; };
 		8F3E5CE52001FA3A00BC3913 /* LeagueFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CE42001FA3A00BC3913 /* LeagueFilterViewModel.swift */; };
+		8F3E5CE72001FEA000BC3913 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CE62001FEA000BC3913 /* UIViewExtension.swift */; };
+		8F3E5CE92002051A00BC3913 /* LeagueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CE82002051A00BC3913 /* LeagueCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		8F3E5CE02001F31F00BC3913 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		8F3E5CE22001FA1B00BC3913 /* LeagueFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueFilterViewController.swift; sourceTree = "<group>"; };
 		8F3E5CE42001FA3A00BC3913 /* LeagueFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueFilterViewModel.swift; sourceTree = "<group>"; };
+		8F3E5CE62001FEA000BC3913 /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		8F3E5CE82002051A00BC3913 /* LeagueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,7 @@
 				8F3E5CD92001D02000BC3913 /* FixtureTableViewSectionHeader.swift */,
 				8F3E5CDB2001D89800BC3913 /* LeagueTableViewCell.swift */,
 				8F3E5CE22001FA1B00BC3913 /* LeagueFilterViewController.swift */,
+				8F3E5CE82002051A00BC3913 /* LeagueCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 			children = (
 				8F3E5CDE2001E0DC00BC3913 /* ArrayExtension.swift */,
 				8F3E5CE02001F31F00BC3913 /* DateExtension.swift */,
+				8F3E5CE62001FEA000BC3913 /* UIViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -380,10 +386,12 @@
 				8F3E5CE12001F31F00BC3913 /* DateExtension.swift in Sources */,
 				8F3E5CE52001FA3A00BC3913 /* LeagueFilterViewModel.swift in Sources */,
 				8F3E5C8D1FFFA0AC00BC3913 /* FixturesViewController.swift in Sources */,
+				8F3E5CE92002051A00BC3913 /* LeagueCell.swift in Sources */,
 				8F3E5CCD2000BAB200BC3913 /* FixturesViewModel.swift in Sources */,
 				8F3E5CC82000A79D00BC3913 /* Fixture.swift in Sources */,
 				8F3E5CDA2001D02000BC3913 /* FixtureTableViewSectionHeader.swift in Sources */,
 				8F3E5CC620009ABC00BC3913 /* League.swift in Sources */,
+				8F3E5CE72001FEA000BC3913 /* UIViewExtension.swift in Sources */,
 				8F3E5CCB2000ADBE00BC3913 /* APIService.swift in Sources */,
 				8F3E5C8B1FFFA0AC00BC3913 /* AppDelegate.swift in Sources */,
 				8F3E5CE32001FA1B00BC3913 /* LeagueFilterViewController.swift in Sources */,
