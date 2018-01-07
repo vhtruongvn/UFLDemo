@@ -14,7 +14,7 @@ class FixturesViewModel {
     
     private var fixtures: [Fixture] = [Fixture]()
 
-    private var cellViewModels: [FixtureCellViewModel] = [FixtureCellViewModel]() {
+    private var cellViewModels: [[FixtureCellViewModel]] = [[FixtureCellViewModel]]() {
         didSet {
             self.reloadTableViewClosure?()
         }
@@ -32,7 +32,7 @@ class FixturesViewModel {
         }
     }
     
-    var numberOfCells: Int {
+    var numberOfSections: Int {
         return cellViewModels.count
     }
     
@@ -57,14 +57,24 @@ class FixturesViewModel {
         }
     }
     
+    func getNumberOfCellViewModels(at section: Int) -> Int {
+        return cellViewModels[section].count
+    }
+    
+    func getSectionTitle(at section: Int) -> String {
+        return cellViewModels[section][0].dateText
+    }
+    
     func getCellViewModel(at indexPath: IndexPath) -> FixtureCellViewModel {
-        return cellViewModels[indexPath.row]
+        return cellViewModels[indexPath.section][indexPath.row]
     }
     
     func createCellViewModel(fixture: Fixture) -> FixtureCellViewModel {
         let homeTeamLogoName = fixture.homeTeam.shortName
         let homeTeamText = fixture.homeTeam.name
         let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE dd MMMM"
+        let dateText = dateFormatter.string(from: fixture.gameDateTime)
         dateFormatter.dateFormat = "HH:mm"
         let timeText = dateFormatter.string(from: fixture.gameDateTime)
         let awayTeamLogoName = fixture.awayTeam.shortName
@@ -72,6 +82,7 @@ class FixturesViewModel {
         
         return FixtureCellViewModel(homeTeamLogoName: homeTeamLogoName,
                                     homeTeamText: homeTeamText,
+                                    dateText: dateText,
                                     timeText: timeText,
                                     awayTeamLogoName: awayTeamLogoName,
                                     awayTeamText: awayTeamText)
@@ -83,7 +94,9 @@ class FixturesViewModel {
         for fixture in fixtures {
             vms.append(createCellViewModel(fixture: fixture))
         }
-        self.cellViewModels = vms
+        let groupedVMS = vms.groupBy { $0.dateText }
+        print(groupedVMS)
+        self.cellViewModels = groupedVMS
     }
     
 }
@@ -91,6 +104,7 @@ class FixturesViewModel {
 struct FixtureCellViewModel {
     let homeTeamLogoName: String
     let homeTeamText: String
+    let dateText: String
     let timeText: String
     let awayTeamLogoName: String
     let awayTeamText: String

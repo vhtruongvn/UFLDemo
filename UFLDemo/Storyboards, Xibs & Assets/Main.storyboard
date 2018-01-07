@@ -68,6 +68,7 @@
                                                 <constraint firstItem="5Bd-d5-rNZ" firstAttribute="centerX" secondItem="XCW-Ve-csi" secondAttribute="centerX" id="TPC-ch-0i5"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="dateLabel" destination="5Bd-d5-rNZ" id="3yF-dI-kcl"/>
                                         </connections>
@@ -107,6 +108,7 @@
                                                 <constraint firstItem="SIl-14-6Di" firstAttribute="centerY" secondItem="gVz-vb-faP" secondAttribute="centerY" id="pFc-gp-Djf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="leagueLogoImageView" destination="gVz-vb-faP" id="W3I-km-duj"/>
                                             <outlet property="leagueNameLabel" destination="SIl-14-6Di" id="gYR-T8-nCm"/>

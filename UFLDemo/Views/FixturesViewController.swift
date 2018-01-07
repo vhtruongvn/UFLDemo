@@ -136,7 +136,7 @@ class FixturesViewController: UIViewController {
 extension FixturesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return viewModel.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -148,13 +148,13 @@ extension FixturesViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError("Cell not exists in storyboard")
         }
         
-        cell.dateLabel.text = "TODAY"
+        cell.dateLabel.text = viewModel.getSectionTitle(at: section)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfCells
+        return viewModel.getNumberOfCellViewModels(at: section)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

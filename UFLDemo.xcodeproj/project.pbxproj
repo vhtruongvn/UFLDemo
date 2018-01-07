@@ -27,6 +27,7 @@
 		8F3E5CD82001B8F900BC3913 /* APIServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CD72001B8F900BC3913 /* APIServiceTests.swift */; };
 		8F3E5CDA2001D02000BC3913 /* FixtureTableViewSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CD92001D02000BC3913 /* FixtureTableViewSectionHeader.swift */; };
 		8F3E5CDC2001D89800BC3913 /* LeagueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CDB2001D89800BC3913 /* LeagueTableViewCell.swift */; };
+		8F3E5CDF2001E0DC00BC3913 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3E5CDE2001E0DC00BC3913 /* ArrayExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		8F3E5CD72001B8F900BC3913 /* APIServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServiceTests.swift; sourceTree = "<group>"; };
 		8F3E5CD92001D02000BC3913 /* FixtureTableViewSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixtureTableViewSectionHeader.swift; sourceTree = "<group>"; };
 		8F3E5CDB2001D89800BC3913 /* LeagueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeagueTableViewCell.swift; sourceTree = "<group>"; };
+		8F3E5CDE2001E0DC00BC3913 /* ArrayExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				8F3E5CBA1FFFA20400BC3913 /* Views */,
 				8F3E5CBB1FFFA20C00BC3913 /* ViewModels */,
 				8F3E5CD02000C78600BC3913 /* Subclasses */,
+				8F3E5CDD2001E0B000BC3913 /* Extensions */,
 			);
 			path = UFLDemo;
 			sourceTree = "<group>";
@@ -218,6 +221,14 @@
 				8F3E5CD520017A1600BC3913 /* DesignableView.swift */,
 			);
 			path = Subclasses;
+			sourceTree = "<group>";
+		};
+		8F3E5CDD2001E0B000BC3913 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				8F3E5CDE2001E0DC00BC3913 /* ArrayExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +379,7 @@
 				8F3E5CD620017A1600BC3913 /* DesignableView.swift in Sources */,
 				8F3E5CDC2001D89800BC3913 /* LeagueTableViewCell.swift in Sources */,
 				8F3E5CCF2000C0F500BC3913 /* FixtureTableViewCell.swift in Sources */,
+				8F3E5CDF2001E0DC00BC3913 /* ArrayExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
