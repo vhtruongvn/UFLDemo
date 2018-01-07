@@ -23,7 +23,7 @@ class APIService: APIServiceProtocol {
     
     func fetchAllLeagues(complete: @escaping (_ success: Bool, _ leagues: [League], _ error: APIError? ) -> ()) {
         DispatchQueue.global().async {
-            sleep(1) // simulate a long waiting for fetching
+            sleep(3) // simulate a long waiting for fetching
             
             do {
                 if let file = Bundle.main.url(forResource: "leagues", withExtension: "json") {

@@ -237,6 +237,9 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="g9n-zH-SaK"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="F1F-EQ-OZ8">
+                                <rect key="frame" x="169" y="283" width="37" height="37"/>
+                            </activityIndicatorView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UgQ-w3-UAx">
                                 <rect key="frame" x="0.0" y="-64" width="375" height="64"/>
                                 <constraints>
@@ -262,6 +265,8 @@
                             <constraint firstItem="fNT-Qy-4cR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wc0-A6-4kM"/>
                             <constraint firstItem="MME-J5-UkI" firstAttribute="height" secondItem="4SW-JF-Sk2" secondAttribute="height" id="YZ8-34-E9O"/>
                             <constraint firstItem="4SW-JF-Sk2" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="cAt-t8-KaA"/>
+                            <constraint firstItem="F1F-EQ-OZ8" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="hVY-RG-Zfl"/>
+                            <constraint firstItem="F1F-EQ-OZ8" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="khp-aZ-hVc"/>
                             <constraint firstItem="MME-J5-UkI" firstAttribute="centerX" secondItem="4SW-JF-Sk2" secondAttribute="centerX" id="mmp-Wc-yqJ"/>
                             <constraint firstItem="4SW-JF-Sk2" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" constant="17" id="oOJ-RK-FYz"/>
                         </constraints>
@@ -271,6 +276,7 @@
                     <connections>
                         <outlet property="leagueFilterContainer" destination="UgQ-w3-UAx" id="bpY-y2-a3f"/>
                         <outlet property="leagueFilterContainerTopConstraint" destination="4Tb-Gq-gam" id="MNf-io-czx"/>
+                        <outlet property="loadingIndicatorView" destination="F1F-EQ-OZ8" id="2yC-p9-flf"/>
                         <outlet property="tableView" destination="fNT-Qy-4cR" id="lkz-gi-VQU"/>
                     </connections>
                 </viewController>
@@ -345,13 +351,18 @@ Name</string>
                                     <outlet property="delegate" destination="41j-72-pjl" id="MeH-Si-9g8"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="vkE-6l-wid">
+                                <rect key="frame" x="177" y="22" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.011764705882352941" green="0.19215686274509802" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="yjG-43-Jri" firstAttribute="width" secondItem="7IP-lD-eUl" secondAttribute="width" id="0n8-vS-wlg"/>
                             <constraint firstItem="yjG-43-Jri" firstAttribute="centerY" secondItem="7IP-lD-eUl" secondAttribute="centerY" id="FtL-vF-yiL"/>
+                            <constraint firstItem="vkE-6l-wid" firstAttribute="centerY" secondItem="pxp-mT-0Fd" secondAttribute="centerY" id="Isw-TN-S5J"/>
                             <constraint firstItem="yjG-43-Jri" firstAttribute="height" secondItem="7IP-lD-eUl" secondAttribute="height" id="Qaw-O2-r6y"/>
                             <constraint firstItem="yjG-43-Jri" firstAttribute="centerX" secondItem="7IP-lD-eUl" secondAttribute="centerX" id="Rfc-Hn-y3L"/>
+                            <constraint firstItem="vkE-6l-wid" firstAttribute="centerX" secondItem="pxp-mT-0Fd" secondAttribute="centerX" id="eZi-Ku-Dzp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pxp-mT-0Fd"/>
                     </view>
@@ -360,6 +371,7 @@ Name</string>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="collectionView" destination="yjG-43-Jri" id="9M6-ij-pFD"/>
+                        <outlet property="loadingIndicatorView" destination="vkE-6l-wid" id="vfX-2e-GL4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I2I-iK-wOk" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -11,6 +11,7 @@ import UIKit
 class LeagueFilterViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var loadingIndicatorView: UIActivityIndicatorView!
     
     lazy var viewModel: LeagueFilterViewModel = {
         return LeagueFilterViewModel()
@@ -43,10 +44,12 @@ class LeagueFilterViewController: UIViewController {
             DispatchQueue.main.async {
                 let isLoading = self?.viewModel.isLoading ?? false
                 if isLoading {
-                    
+                    self?.collectionView.alpha = 0
+                    self?.loadingIndicatorView.startAnimating()
                 }
                 else {
-                    
+                    self?.collectionView.alpha = 1
+                    self?.loadingIndicatorView.stopAnimating()
                 }
             }
         }

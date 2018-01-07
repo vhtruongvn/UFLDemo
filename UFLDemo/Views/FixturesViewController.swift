@@ -15,12 +15,14 @@ let cellHeight: CGFloat = 50
 class FixturesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var loadingIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var leagueFilterContainer: UIView!
     @IBOutlet weak var leagueFilterContainerTopConstraint: NSLayoutConstraint!
     var pullToRefresh: UIRefreshControl!
     var filterButton: UIButton!
     var isFilterMenuDisplayed = false
     var animatingFilterMenu: Bool = false
+    var firstLoad: Bool = true
     
     lazy var viewModel: FixturesViewModel = {
         return FixturesViewModel()
@@ -86,9 +88,18 @@ class FixturesViewController: UIViewController {
             DispatchQueue.main.async {
                 let isLoading = self?.viewModel.isLoading ?? false
                 if isLoading {
-                    self?.pullToRefresh.beginRefreshing()
+                    if self!.firstLoad {
+                        self!.firstLoad = false
+                        self?.tableView.alpha = 0
+                        self?.loadingIndicatorView.startAnimating()
+                    }
+                    else {
+                        self?.pullToRefresh.beginRefreshing()
+                    }
                 }
                 else {
+                    self?.tableView.alpha = 1
+                    self?.loadingIndicatorView.stopAnimating() // if loading
                     self?.pullToRefresh.endRefreshing()
                 }
             }
