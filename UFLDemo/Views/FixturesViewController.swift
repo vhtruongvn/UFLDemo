@@ -192,6 +192,7 @@ extension FixturesViewController: LeagueFilterViewControllerDelegate {
     
     func filterApplied(leagueIds: [Int]) {
         print(leagueIds)
+        viewModel.applyFilter(leagueIds: leagueIds)
     }
     
 }

@@ -69,6 +69,18 @@ class FixturesViewModel {
         return cellViewModels[indexPath.section][indexPath.row]
     }
     
+    func applyFilter(leagueIds: [Int]) {
+        var vms = [FixtureCellViewModel]()
+        for fixture in self.fixtures {
+            if leagueIds.contains(0) || leagueIds.contains(fixture.league.id) {
+                vms.append(createCellViewModel(fixture: fixture))
+            }
+        }
+        let groupedVMS = vms.groupBy { $0.dateText }
+        print(groupedVMS)
+        self.cellViewModels = groupedVMS
+    }
+    
     func createCellViewModel(fixture: Fixture) -> FixtureCellViewModel {
         let homeTeamLogoName = fixture.homeTeam.shortName
         let homeTeamText = fixture.homeTeam.name
