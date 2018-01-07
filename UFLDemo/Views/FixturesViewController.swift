@@ -8,6 +8,7 @@
 
 import UIKit
 
+let filterMenuHeight: CGFloat = 64
 let headerSectionHeight: CGFloat = 44
 let cellHeight: CGFloat = 50
 
@@ -129,26 +130,27 @@ class FixturesViewController: UIViewController {
     }
     
     func hideFilterMenu() {
-        let yAlign: CGFloat = -64
-        self.animateDropDownToFrame(y: yAlign) {
+        let yAlign: CGFloat = -filterMenuHeight
+        self.animateDropDownToFrame(y: yAlign, tableEdgeInsetTop: 0) {
             self.isFilterMenuDisplayed = false
         }
     }
     
     func showFilterMenu() {
         let yAlign: CGFloat = 0.0
-        self.animateDropDownToFrame(y: yAlign) {
+        self.animateDropDownToFrame(y: yAlign, tableEdgeInsetTop: filterMenuHeight) {
             self.isFilterMenuDisplayed = true
         }
     }
     
-    func animateDropDownToFrame(y: CGFloat, completion:@escaping () -> Void) {
+    func animateDropDownToFrame(y: CGFloat, tableEdgeInsetTop: CGFloat, completion:@escaping () -> Void) {
         if !self.animatingFilterMenu {
             self.animatingFilterMenu = true
             
             UIView.animate(withDuration: 0.5, delay: 0.0, options: .curveEaseInOut, animations: { () -> Void in
                 self.leagueFilterContainerTopConstraint.constant = y // change the position of filter menu
-                self.view.layoutIfNeeded() // essential for animation carry out if not view changes abruptly
+                self.tableView.contentInset = UIEdgeInsetsMake(tableEdgeInsetTop, 0, 0, 0)
+                self.view.layoutIfNeeded() // essential for animation carry out if not view changes suddenly
             }, completion: { (completed: Bool) -> Void in
                 self.animatingFilterMenu = false
                 if (completed) {
