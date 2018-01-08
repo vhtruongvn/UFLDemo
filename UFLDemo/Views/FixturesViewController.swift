@@ -226,17 +226,29 @@ extension FixturesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "fixtureCellIdentifier", for: indexPath) as? FixtureTableViewCell else {
-            fatalError("Cell not exists in storyboard")
-        }
-        
         let cellVM = viewModel.getCellViewModel(at: indexPath)
         
-        cell.homeTeamNameLabel.text = cellVM.homeTeamText
-        cell.timeLabel.text = cellVM.timeText
-        cell.awayTeamNameLabel.text = cellVM.awayTeamText
-        
-        return cell
+        if cellVM.isLeagueCell {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "leagueCellIdentifier", for: indexPath) as? LeagueTableViewCell else {
+                fatalError("Cell not exists in storyboard")
+            }
+            
+            cell.leagueLogoName = cellVM.leagueLogoName
+            cell.leagueName = cellVM.leagueName
+            
+            return cell
+        }
+        else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "fixtureCellIdentifier", for: indexPath) as? FixtureTableViewCell else {
+                fatalError("Cell not exists in storyboard")
+            }
+            
+            cell.homeTeamName = cellVM.homeTeamText
+            cell.timeText = cellVM.timeText
+            cell.awayTeamName = cellVM.awayTeamText
+            
+            return cell
+        }
     }
     
 }

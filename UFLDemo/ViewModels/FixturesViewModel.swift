@@ -14,7 +14,7 @@ class FixturesViewModel {
     
     private var fixtures: [Fixture] = [Fixture]()
 
-    private var cellViewModels: [[FixtureCellViewModel]] = [[FixtureCellViewModel]]() {
+    private var cellViewModels: [DateSection] = [DateSection]() {
         didSet {
             self.reloadTableViewClosure?()
         }
@@ -58,27 +58,26 @@ class FixturesViewModel {
     }
     
     func getNumberOfCellViewModels(at section: Int) -> Int {
-        return cellViewModels[section].count
+        return cellViewModels[section].leagueFixtures.count
     }
     
     func getSectionTitle(at section: Int) -> String {
-        return cellViewModels[section][0].dateText
+        return cellViewModels[section].dateText
     }
     
     func getCellViewModel(at indexPath: IndexPath) -> FixtureCellViewModel {
-        return cellViewModels[indexPath.section][indexPath.row]
+        return cellViewModels[indexPath.section].leagueFixtures[indexPath.row]
     }
     
+    // Apply filter on the cached fixtures
     func applyFilter(leagueIds: [Int]) {
-        var vms = [FixtureCellViewModel]()
+        var filteredFixtures = [Fixture]()
         for fixture in self.fixtures {
             if leagueIds.contains(0) || leagueIds.contains(fixture.league.id) {
-                vms.append(createCellViewModel(fixture: fixture))
+                filteredFixtures.append(fixture)
             }
         }
-        let groupedVMS = vms.groupBy { $0.dateText }
-        print(groupedVMS)
-        self.cellViewModels = groupedVMS
+        groupFetchexFixturesByDateAndLeague(filteredFixtures)
     }
     
     func createCellViewModel(fixture: Fixture) -> FixtureCellViewModel {
@@ -91,7 +90,10 @@ class FixturesViewModel {
         let awayTeamLogoName = fixture.awayTeam.shortName
         let awayTeamText = fixture.awayTeam.name
         
-        return FixtureCellViewModel(homeTeamLogoName: homeTeamLogoName,
+        return FixtureCellViewModel(isLeagueCell: false,
+                                    leagueLogoName: fixture.league.region,
+                                    leagueName: fixture.league.name,
+                                    homeTeamLogoName: homeTeamLogoName,
                                     homeTeamText: homeTeamText,
                                     dateText: dateText,
                                     timeText: timeText,
@@ -100,19 +102,59 @@ class FixturesViewModel {
     }
     
     private func processFetchedFixtures(fixtures: [Fixture]) {
-        self.fixtures = fixtures // cache
+        let sortedFixtures = fixtures.sorted(by: {$0.gameDateTime.compare($1.gameDateTime) == .orderedAscending})
+        self.fixtures = sortedFixtures // cache
+        groupFetchexFixturesByDateAndLeague(sortedFixtures)
+    }
+    
+    private func groupFetchexFixturesByDateAndLeague(_ fixtures: [Fixture]) {
         var vms = [FixtureCellViewModel]()
         for fixture in fixtures {
             vms.append(createCellViewModel(fixture: fixture))
         }
-        let groupedVMS = vms.groupBy { $0.dateText }
-        print(groupedVMS)
-        self.cellViewModels = groupedVMS
+        
+        let groupedVMSByDate = vms.groupBy { $0.dateText } // group fixtures by date
+        print("--> Group by date [\(groupedVMSByDate.count)] items \(groupedVMSByDate)")
+        
+        var groupedVMSByDateAndLeague = [DateSection]()
+        for gVMS in groupedVMSByDate {
+            let groupedLeagueVMS = gVMS.groupBy { $0.leagueName }
+            
+            var allLeagueFixturesPerDate = [FixtureCellViewModel]()
+            for glVMS in groupedLeagueVMS {
+                // this cell view model is to display the league name only
+                let fixtureCVM = FixtureCellViewModel(isLeagueCell: true,
+                                                      leagueLogoName: glVMS[0].leagueLogoName,
+                                                      leagueName: glVMS[0].leagueName,
+                                                      homeTeamLogoName: "",
+                                                      homeTeamText: "",
+                                                      dateText: "",
+                                                      timeText: "",
+                                                      awayTeamLogoName: "",
+                                                      awayTeamText: "")
+                allLeagueFixturesPerDate.append(fixtureCVM)
+                allLeagueFixturesPerDate.append(contentsOf: glVMS)
+            }
+            
+            let dateSection = DateSection(dateText: gVMS[0].dateText, leagueFixtures: allLeagueFixturesPerDate)
+            groupedVMSByDateAndLeague.append(dateSection)
+        }
+        print("--> Group by date & league [\(groupedVMSByDateAndLeague.count)] items \(groupedVMSByDateAndLeague)")
+        
+        self.cellViewModels = groupedVMSByDateAndLeague
     }
     
 }
 
+struct DateSection {
+    let dateText: String
+    var leagueFixtures: [FixtureCellViewModel]
+}
+
 struct FixtureCellViewModel {
+    var isLeagueCell: Bool
+    let leagueLogoName: String
+    let leagueName: String
     let homeTeamLogoName: String
     let homeTeamText: String
     let dateText: String

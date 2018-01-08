@@ -13,4 +13,22 @@ class LeagueTableViewCell: UITableViewCell {
     @IBOutlet weak var leagueLogoImageView: UIImageView!
     @IBOutlet weak var leagueNameLabel: UILabel!
     
+    var leagueName: String {
+        didSet {
+            leagueNameLabel.text = leagueName
+        }
+    }
+    
+    var leagueLogoName: String {
+        didSet {
+            leagueLogoImageView.image = UIImage(named: leagueLogoName)
+        }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.leagueName = ""
+        self.leagueLogoName = ""
+        super.init(coder: aDecoder)
+    }
+    
 }

@@ -9,6 +9,7 @@
 import UIKit
 
 class LeagueCell : UICollectionViewCell {
+    
     @IBOutlet weak var leagueLogoImage: UIImageView!
     @IBOutlet weak var leagueNameLabel: UILabel!
     
